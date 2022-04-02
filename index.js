@@ -1,3 +1,4 @@
+//http://www.techbowl.in/php/php-pdo-crud-with-ajax-jquery-and-bootstrap/
 function loadTable() {
     const xhttp = new XMLHttpRequest();
     xhttp.open("GET", "https://www.mecallapi.com/api/users");
