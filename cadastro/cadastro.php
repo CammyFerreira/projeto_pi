@@ -1,7 +1,7 @@
 <?php
-require_once 'conexao.php';
+require_once '../conexao.php';
 
-$email  = $_POST['email'];//Dado inseguro 
+$email  = $_POST['email'];
 $nome   = $_POST['nome'];
 $senha  = $_POST['senha'];
 $confirmacaoSenha = $_POST['confirmacao_senha'];
@@ -30,4 +30,4 @@ if( $stmt->execute() ){
     echo "Problema ao gravar $nome";
 }
 
-echo "<br><a href='formUsuario.php'>Voltar</a>";
+echo "<br><a href='login.php'>Voltar</a>";
