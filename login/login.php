@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'conexao.php';
+require_once '../conexao.php';
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
@@ -16,7 +16,7 @@ if( password_verify( $senha, $val['senha']) ){
 
     $_SESSION['id'] = $email;
 
-    header('location: index.php');
+    header('location: ../jogo/projeto.html');
 
 }else{
 
