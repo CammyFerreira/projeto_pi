@@ -30,4 +30,4 @@ if( $stmt->execute() ){
     echo "Problema ao gravar $nome";
 }
 
-echo "<br><a href='login.php'>Voltar</a>";
+echo "<br><a href=''>Voltar</a>";
