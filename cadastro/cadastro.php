@@ -13,6 +13,14 @@ if($senha != $confirmacaoSenha){
     exit();
 }
 
+
+// if(filter_var($email, FILTER_VALIDATE_EMAIL)):
+//     echo 'E-mail válido.';
+// else:
+//     echo 'E-mail inválido.';
+// endif; 
+
+  
 $senha = password_hash( $senha, PASSWORD_DEFAULT);
 
 $stmt = $bd->prepare('  INSERT INTO usuarios 
