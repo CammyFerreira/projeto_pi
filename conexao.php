@@ -2,7 +2,7 @@
 
 //ligar o php ao banco de dados
 
-$dsn = 'mysql:dbname=php;host=localhost';
+$dsn = 'mysql:dbname=projeto;host=localhost';
 $user = "root";
 $pass = "";
 

@@ -3,9 +3,11 @@
 require_once '../conexao.php';
 
 $id = preg_replace('/\D/', '', $_POST['id']);
+echo "entrou";
 
+var_dump($id);
 //Atualiza o registro
-if(isset($_POST['jogo'])){
+if(!isset($_POST['id']) == ''){
 
     $arquivoEnviado = '';
 
@@ -20,7 +22,7 @@ if(isset($_POST['jogo'])){
     
         if($tipo == 'image'){
     
-            $arquivoEnviado = 'imagens/' . $_FILES['figura']['name'] 
+            $arquivoEnviado = '../img/' . $_FILES['figura']['name'] 
                     . '_' . md5(rand(-9999999, 9999999) . microtime()) 
                         . '.' . $ext;
     
@@ -30,13 +32,16 @@ if(isset($_POST['jogo'])){
         }
     }
 
-    $stmt = $bd->prepare('  UPDATE jogo 
-                            SET nome = :nome, descricao = :descricao, imagem = :imagem 
-                            WHERE id = :id');
-    $stmt->bindParam(':nome', $_POST['jogo']);
-    $stmt->bindParam(':descricao', $_POST['jogo']);
+    var_dump($id);
+    
+    $stmt = $bd->prepare('UPDATE jogo 
+    SET nome = :nome, descricao = :descricao, imagem = :imagem 
+    WHERE id = :id');
+    $stmt->bindParam(':nome', $_POST['nome']);
+    $stmt->bindParam(':descricao', $_POST['descricao']);
     $stmt->bindParam(':imagem', $arquivoEnviado);
     $stmt->bindParam(':id', $id);
+  
 
     if($stmt->execute()){
         echo "Jogo atualizado";
