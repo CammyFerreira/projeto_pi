@@ -8,34 +8,7 @@ $stmt = $bd->query('SELECT id, nome, descricao, imagem FROM jogo WHERE apagado =
 $stmt->execute();
 
 echo "<a href='../jogo/formJogo.php'>+ Novo Jogo</a>
-        <section>
-          <form method='get'>
-            <div class= 'row my-4'>
-              <div class='col'>
-                <label>Buscar por título</label>
-                <input type='text' name='busca' class='form-control' value='$busca'>
-                </div>
-        <div class='col'>
-        <label>Categoria</label>
-        <select name='status' class='form-control'>
-                <option value=''>Todas<option>
-                <option value='t' $filtroStatus == 't' ? 'selected' : ''>Terror<option>
-                <option value='a'>FPA<option>
-                <option value='m'>Moba<option>
-                <option value='f'>FPS<option>
-                <option value='b'>Battle Royale<option>
-                <option value='p'>PVP<option>
-                <option value='r'>RPG<option>
-        </select>
-        </div>
-              
-            <div class='col'>
-                <button type='submit' class='btn btn-primary'>Filtrar</button>
-             </div>
-        </div>
-          </form>
-        </section>
-
+        
         <form method='post'>
         <table border='1'>
         <tr>
