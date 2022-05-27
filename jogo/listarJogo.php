@@ -1,13 +1,13 @@
 <?php
 // require '../controleDeAcesso.php';
 require '../conexao.php';
-require 'buscar.php';
 
 $stmt = $bd->query('SELECT id, nome, descricao, imagem FROM jogo WHERE apagado = 0');
 
 $stmt->execute();
 
-echo "<a href='../jogo/formJogo.php'>+ Novo Jogo</a>
+echo "<a href='formJogo.php'>+ Novo Jogo</a>
+        <a href='buscar.php'>Buscar</a>
         
         <form method='post'>
         <table border='1'>

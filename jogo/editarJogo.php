@@ -3,16 +3,14 @@
 require_once '../conexao.php';
 
 $id = preg_replace('/\D/', '', $_POST['id']);
-echo "entrou";
 
-var_dump($id);
 //Atualiza o registro
 if(!isset($_POST['id']) == ''){
 
     $arquivoEnviado = '';
 
-    if($_FILES['figura']['error'] == 0 &&
-        $_FILES['figura']['size'] > 0){
+    if(isset($_FILES['figura']['error']) == 0 &&
+        isset($_FILES['figura']['size']) > 0){
     
         $mimeType = mime_content_type($_FILES['figura']['tmp_name']);
     
@@ -32,7 +30,6 @@ if(!isset($_POST['id']) == ''){
         }
     }
 
-    var_dump($id);
     
     $stmt = $bd->prepare('UPDATE jogo 
     SET nome = :nome, descricao = :descricao, imagem = :imagem 

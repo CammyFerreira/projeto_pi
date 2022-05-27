@@ -61,5 +61,6 @@ include('../conexao.php');
         <?php
         } ?>
     </table>
+    <a href='listarJogo.php'>Voltar</a>
 </body>
 </html>
