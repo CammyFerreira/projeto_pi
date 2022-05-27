@@ -2,7 +2,7 @@
 // require '../controleDeAcesso.php';
 require '../conexao.php';
 require 'buscar.php';
-
+exit();
 $stmt = $bd->query('SELECT id, nome, descricao, imagem FROM jogo WHERE apagado = 0');
 
 $stmt->execute();

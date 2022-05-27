@@ -50,7 +50,7 @@ if(!isset($_POST['id']) == ''){
     }
 }//FIM Atualiza o registro
 
-$stmt = $bd->query("SELECT nome, descricao, imagem FROM jogo WHERE id = $id");
+$stmt = $bd->query("SELECT nome, descricao, imagem FROM jogo");
 $stmt->execute();
 $jogo = $stmt->fetch(PDO::FETCH_ASSOC);
 
