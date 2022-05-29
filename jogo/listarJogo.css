@@ -1,0 +1,18 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.botoes a {
+  padding: 8px;
+  margin: 5px;
+
+  background-color: #ddd;
+  border-radius: 4px;
+}

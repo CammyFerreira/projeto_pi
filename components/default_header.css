@@ -1,0 +1,10 @@
+.default-header {
+  background-color: #cecece;
+  display: flex;
+  padding: 5px 15px;
+}
+
+.default-header-logo {
+  width: 100px;
+  cursor: pointer;
+}

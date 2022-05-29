@@ -1,27 +1,41 @@
 <?php
 // require '../controleDeAcesso.php';
 require '../conexao.php';
+$titulo = "Meu titulo";
+include('../components/head.inc.php');
+include('../components/default_header.inc.php');
+include('../components/container.inc.php');
 
 $stmt = $bd->query('SELECT id, nome, descricao, imagem FROM jogo WHERE apagado = 0');
 
 $stmt->execute();
 
-echo "<a href='formJogo.php'>+ Novo Jogo</a>
-        <a href='buscar.php'>Buscar</a>
-        
+echo "
+        <link rel='stylesheet' href='listarJogo.css'>
+        <div class='menu'>
+                <p>Jogos</p>
+
+                <div class='botoes'>
+                        <a href='formJogo.php'>+ Novo Jogo</a>
+                        <a href='buscar.php'>Buscar</a>
+                </div>
+        </div>
+
         <form method='post'>
-        <table border='1'>
-        <tr>
-            <td>ID</td>
-            <td>Nome</td>
-            <td>Descrição</td>
-            <td>Imagem</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>";
+        <!-- table-hover -->
+        <table class='table table-striped'>
+        <thead>
+                <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Imagem</th>
+                        <th>&nbsp;</th>
+                </tr>
+        </thead>
+        <tbody>";
 
-while($reg = $stmt->fetch(PDO::FETCH_ASSOC)){
-
+while($reg = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $img = 'N/D';    
 
     if(!empty($reg['imagem'])){
@@ -30,16 +44,21 @@ while($reg = $stmt->fetch(PDO::FETCH_ASSOC)){
         }
     }    
 
-    echo "  <tr>
-                <td>{$reg['id']}</td>
+    echo "
+        <tr>
+                <th>{$reg['id']}</th>
                 <td>{$reg['nome']}</td>
                 <td>{$reg['descricao']}</td>
                 <td>$img</td>
-                <td><button name='id' formaction='editarJogo.php' 
-                        value='{$reg['id']}'>Editar</button></td>
-                <td><button name='id' formaction='apagaJogo.php' 
-                        value='{$reg['id']}'>Apagar</button></td>
-            </tr>";
+                <td>
+                        <button name='id' formaction='editarJogo.php' 
+                                value='{$reg['id']}'>Editar</button>
+                        <button name='id' formaction='apagaJogo.php' 
+                        value='{$reg['id']}'>Apagar</button>
+                </td>
+        </tr>
+    ";
 }
+echo "</tbody>";
 
 // echo "<table></form><br><a href='index.php'>Menu</a>";
