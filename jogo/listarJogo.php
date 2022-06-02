@@ -16,21 +16,21 @@ echo "
                 <p>Jogos</p>
 
                 <div class='botoes'>
-                        <a href='formJogo.php'>+ Novo Jogo</a>
-                        <a href='buscar.php'>Buscar</a>
+                        <a href='formJogo.php' class='btn btn-secondary'>Novo Jogo</a>
+                        <a href='buscar.php' class='btn btn-secondary'>Buscar</a>
                 </div>
         </div>
 
         <form method='post'>
         <!-- table-hover -->
         <table class='table table-striped'>
-        <thead>
+        <thead class='table-dark'>
                 <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>Descrição</th>
+                        <th>Categoria</th>
                         <th>Imagem</th>
-                        <th>&nbsp;</th>
+                        <th>Editar/Apagar</th>
                 </tr>
         </thead>
         <tbody>";
@@ -40,7 +40,7 @@ while($reg = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     if(!empty($reg['imagem'])){
         if(is_file($reg['imagem'])){
-                $img = "<img src='{$reg['imagem']}' width='50' height='50'>";
+                $img = "<img src='{$reg['imagem']}' width='50' height='50' class='rounded-circle'>";
         }
     }    
 
@@ -52,13 +52,13 @@ while($reg = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <td>$img</td>
                 <td>
                         <button name='id' formaction='editarJogo.php' 
-                                value='{$reg['id']}'>Editar</button>
+                                value='{$reg['id']}' class='btn btn-secondary'>Editar</button>
                         <button name='id' formaction='apagaJogo.php' 
-                        value='{$reg['id']}'>Apagar</button>
+                        value='{$reg['id']}' class='btn btn-secondary'>Apagar</button>
                 </td>
         </tr>
     ";
 }
 echo "</tbody>";
 
-// echo "<table></form><br><a href='index.php'>Menu</a>";
+echo "<table></form><br><button name='id' formaction='logout.php' class='btn btn-secondary'>Sair</button>";

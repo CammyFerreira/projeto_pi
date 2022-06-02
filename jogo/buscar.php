@@ -2,15 +2,17 @@
 include('../conexao.php');
 $titulo = "Sistema de Busca";
 include('../components/head.inc.php');
+include('../components/default_header.inc.php');
 ?>
 
 <h1>Lista de Jogos</h1>
 <form action="">
-    <input name="busca" value="<?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text">
-    <button type="submit">Pesquisar</button>
+        <input name="busca" value=" <?php if(isset($_GET['busca'])) echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa" type="text">
+        <button type="submit" class='btn btn-secondary btn-sm'>Pesquisar</button>
+    
 </form>
 <br>
-<table width="600px" border="1">
+<table width="600px" border="1" class="table table-striped">
     <tr>
         <th>Nome</th>
         <th>Descrição</th>
@@ -53,4 +55,4 @@ include('../components/head.inc.php');
     <?php
     } ?>
 </table>
-<a href='listarJogo.php'>Voltar</a>
+<a href='listarJogo.php' class='btn btn-secondary'>Voltar</a>

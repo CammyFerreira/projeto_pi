@@ -16,7 +16,7 @@ if( password_verify( $senha, $val['senha']) ){
 
     $_SESSION['id'] = $email;
 
-    header('location: ../jogo/index.php');
+    header('location: ../jogo/listarJogo.php');
 
 }else{
 
