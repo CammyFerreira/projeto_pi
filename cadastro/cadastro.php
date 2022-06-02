@@ -12,23 +12,15 @@ if($senha != $confirmacaoSenha){
             <a href='formUsuario.php'></a>";
     exit();
 }
-
-
-// if(filter_var($email, FILTER_VALIDATE_EMAIL)):
-//     echo 'E-mail válido.';
-// else:
-//     echo 'E-mail inválido.';
-// endif; 
-
   
 $senha = password_hash( $senha, PASSWORD_DEFAULT);
 
 $stmt = $bd->prepare('  INSERT INTO usuarios 
-                            (id, nome, senha) 
+                            (email, nome, senha) 
                         VALUES 
-                            (:id, :nome, :senha)');
+                            (:email, :nome, :senha)');
 
-$stmt->bindParam(':id', $email);
+$stmt->bindParam(':email', $email);
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':senha', $senha);
 
