@@ -4,6 +4,7 @@ require_once '../conexao.php';
 $titulo = "Editar jogo";
 include('../components/head.inc.php');
 include('../components/container.inc.php');
+include('../components/default_header.inc.php');
 
 $jogo = '';
 $id = preg_replace('/\D/', '', $_POST['id']);
@@ -36,7 +37,7 @@ function AtualizarRegistro() {
 
     // Verificar campos obrigatorios.
     if ($nome === "" || $descricao === ""){
-        echo "Campos obrigatórios não foram preenchidos.";
+        echo "Campos obrigatórios não foram preenchidos. <br><br><a href='listarJogo.php'>Voltar</a>";
         exit();
     }
     
@@ -45,8 +46,6 @@ function AtualizarRegistro() {
     
     if($_FILES['figura']['error'] == 0 &&
         $_FILES['figura']['size'] > 0){
-        
-        echo "Entrou";
     
         $mimeType = mime_content_type($_FILES['figura']['tmp_name']);
     
@@ -95,7 +94,8 @@ if(!empty($jogo['imagem'])){
     }
 }
 
-echo "  <form method='post' enctype='multipart/form-data'>
+echo "  
+<form method='post' enctype='multipart/form-data' class= 'mt-5'>
             <label for='jogo'>Nome</label>
             <input type='text' id='jogo' name='nome' 
                 value='{$jogo['nome']}'><br><br>
@@ -103,8 +103,8 @@ echo "  <form method='post' enctype='multipart/form-data'>
             <input type='text' id='jogo' name='descricao' 
                 value='{$jogo['descricao']}'><br><br>
             $img<br>
-            <input type='file' name='figura'>
+            <input type='file' name='figura' class='mt-5'>
             <br><br>
             <input type='hidden' name='id' value='$id'>
-            <input type='submit' value='Atualizar' name='btnAtualizar'>
-        </form><br><br><a href='listarJogo.php'>Voltar</a>";   
+            <input type='submit' value='Atualizar' name='btnAtualizar' class='btn btn-primary'>
+        </form><br><br><a href='listarJogo.php' class='btn btn-secondary btn-lg active' role='button' aria-pressed='true'>Voltar</a>";   

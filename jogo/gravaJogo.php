@@ -12,8 +12,6 @@ if($_FILES['figura']['error'] == 0 &&
 
     $mimeType = mime_content_type($_FILES['figura']['tmp_name']);
 
-        echo "entrou caca";
-
     $campos = explode('/', $mimeType);
     $tipo = $campos[0];
     $ext = $campos[1];
@@ -49,4 +47,4 @@ if($stmt->execute() ){
     echo "Problema ao gravar $jogo";
 }
 
-echo "<br><a href='index.php'>Voltar</a>";
+echo "<br><a href='listarJogo.php'>Voltar</a>";

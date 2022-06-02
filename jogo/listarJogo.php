@@ -16,8 +16,8 @@ echo "
                 <p>Jogos</p>
 
                 <div class='botoes'>
-                        <a href='formJogo.php' class='btn btn-secondary'>Novo Jogo</a>
-                        <a href='buscar.php' class='btn btn-secondary'>Buscar</a>
+                        <a href='formJogo.php' class='btn btn-dark btn-lg active' role='button' aria-pressed='true''>Novo Jogo</a>
+                        <a href='buscar.php' class='btn btn-dark btn-lg active' role='button' aria-pressed='true''>Buscar</a>
                 </div>
         </div>
 
@@ -52,9 +52,9 @@ while($reg = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <td>$img</td>
                 <td>
                         <button name='id' formaction='editarJogo.php' 
-                                value='{$reg['id']}' class='btn btn-secondary'>Editar</button>
+                                value='{$reg['id']}' class='btn btn-warning'>Editar</button>
                         <button name='id' formaction='apagaJogo.php' 
-                        value='{$reg['id']}' class='btn btn-secondary'>Apagar</button>
+                        value='{$reg['id']}' class='btn btn-danger'>Apagar</button>
                 </td>
         </tr>
     ";
