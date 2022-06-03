@@ -1,8 +1,6 @@
 <?php
-// require '../controleDeAcesso.php';
 $titulo = "CRUD Jogos";
 include('../components/head.inc.php');
-include('../components/default_header.inc.php');
 
 echo "
 <link href='formJogo.css' rel='stylesheet'>
@@ -11,15 +9,15 @@ echo "
             method='post'
             enctype='multipart/form-data' class='mt-3'>
             
-            <div class='form-icon'>
-            <span><i class='icon icon-user'></i></span>
+            <div>
+            <img src='../img/logoCrud.png' alt='Logo' style='width:120px;' class='default-header-logo rounded-pill'>
 
         </div>
 
         <h5 class='mt-5'>Cadastre seu Jogo</h5>
         
         <div class='form-group'>
-        <input  required type='text'  class='form-control item' id='jogo' placeholder='Nome do jogo'>
+        <input  required type='text'  class='form-control item' id='jogo' placeholder='Nome do jogo' name='jogo'>
     </div>
     <div class='form-group'>
         <input  required type='text' id='descricao' name='descricao' class='form-control item' placeholder='Empresa'>

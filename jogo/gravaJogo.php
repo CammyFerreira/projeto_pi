@@ -1,5 +1,4 @@
 <?php
-// require '../controleDeAcesso.php';
 require '../conexao.php';
 
 $jogo = $_POST['jogo'];
@@ -17,16 +16,12 @@ if($_FILES['figura']['error'] == 0 &&
     $ext = $campos[1];
 
 
-    
-    var_dump($tipo);
-
     if($tipo == 'image'){
 
         $arquivoEnviado = '../img/' . $_FILES['figura']['name'] 
                 . '_' . md5(rand(-9999999, 9999999) . microtime()) 
                     . '.' . $ext;
         
-                    var_dump($arquivoEnviado);
 
         move_uploaded_file($_FILES['figura']['tmp_name'], "$arquivoEnviado");
     }else{
