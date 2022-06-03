@@ -4,22 +4,35 @@ $titulo = "CRUD Jogos";
 include('../components/head.inc.php');
 include('../components/default_header.inc.php');
 
-echo "<h5 class='mt-5'>CRUD Jogos</h5>
-<div>
+echo "
+<link href='formJogo.css' rel='stylesheet'>
+<div class='registration-form'>
     <form action='gravaJogo.php' 
             method='post'
             enctype='multipart/form-data' class='mt-3'>
-        <label for='jogo'>Nome</label>
-        <input  required type='text' id='jogo' name='jogo'>
-        <br><br>
-        <label for='jogo'>Descrição</label>
-        <input  required type='text' id='descricao' name='descricao'>
-        <br><br>
+            
+            <div class='form-icon'>
+            <span><i class='icon icon-user'></i></span>
+
+        </div>
+
+        <h5 class='mt-5'>Cadastre seu Jogo</h5>
+        
+        <div class='form-group'>
+        <input  required type='text'  class='form-control item' id='jogo' placeholder='Nome do jogo'>
+    </div>
+    <div class='form-group'>
+        <input  required type='text' id='descricao' name='descricao' class='form-control item' placeholder='Empresa'>
+    </div>
+    <div class='form-group'>
         <input type='file' name='figura'>
-        <br><br>
-        <input type='submit' value='Gravar'>
+        </div>
+    <div class='form-group'>
+        <input type='submit' value='Gravar' class='btn btn-block create-account'>
+        </div>
+
+        <div class='mt-5'>
+    <a href='listarJogo.php'class='btn btn-dark btn-lg active' role='button' aria-pressed='true' >Listar</a>
+        </div>
     </form>
-</div>
-<div class='mt-5'>
-    <a href='listarJogo.php'>Listar</a>
 </div>";
