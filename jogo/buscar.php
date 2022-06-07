@@ -50,11 +50,18 @@ include('../components/default_header.inc.php');
             <?php
             } else {
                 while($dados = $sql_query->fetch()) {
+                    $img = 'N/D';    
+
+                    if(!empty($dados['imagem'])){
+                        if(is_file($dados['imagem'])){
+                                $img = "<img src='{$dados['imagem']}' width='50' height='50' class='rounded-circle'>";
+                        }
+                    }    
                     ?>
                     <tr>
                         <td><?php echo $dados['nome']; ?></td>
                         <td><?php echo $dados['descricao']; ?></td>
-                        <td><?php echo $dados['imagem']; ?></td>
+                        <td><?php echo $img; ?></td>
                     </tr>
                     <?php
                 }
