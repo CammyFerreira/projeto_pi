@@ -23,7 +23,7 @@ include('../components/default_header.inc.php');
     <table width="600px" class="table table-striped">
         <tr>
             <th>Nome</th>
-            <th>Descrição</th>
+            <th>Empresa</th>
             <th>Imagem</th>
         </tr>
         <?php
@@ -38,7 +38,7 @@ include('../components/default_header.inc.php');
             $sql_code = "SELECT * 
             FROM jogo 
             WHERE apagado = 0 AND (nome LIKE '%$pesquisa%' 
-            OR descricao LIKE '%$pesquisa%'
+            OR empresa LIKE '%$pesquisa%'
             OR imagem LIKE '%$pesquisa%')";
             $sql_query = $bd->query($sql_code) or die("ERRO ao consultar! " . $bd->error); 
             
@@ -60,7 +60,7 @@ include('../components/default_header.inc.php');
                     ?>
                     <tr>
                         <td><?php echo $dados['nome']; ?></td>
-                        <td><?php echo $dados['descricao']; ?></td>
+                        <td><?php echo $dados['empresa']; ?></td>
                         <td><?php echo $img; ?></td>
                     </tr>
                     <?php

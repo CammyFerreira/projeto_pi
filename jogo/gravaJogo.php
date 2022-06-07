@@ -2,7 +2,7 @@
 require '../conexao.php';
 
 $jogo = $_POST['jogo'];
-$descricao = $_POST['descricao'];
+$empresa = $_POST['empresa'];
 
 $arquivoEnviado = '';
 
@@ -29,10 +29,10 @@ if($_FILES['figura']['error'] == 0 &&
     }
 }
 
-$stmt = $bd->prepare('INSERT INTO jogo (nome, descricao, imagem) VALUES (:nome, :descricao, :imagem)');
+$stmt = $bd->prepare('INSERT INTO jogo (nome, empresa, imagem) VALUES (:nome, :empresa, :imagem)');
 
 $stmt->bindParam(':nome', $jogo);
-$stmt->bindParam(':descricao', $descricao);
+$stmt->bindParam(':empresa', $empresa);
 $stmt->bindParam(':imagem', $arquivoEnviado);
 
 if($stmt->execute() ){

@@ -20,7 +20,7 @@ echo "
         <input  required type='text'  class='form-control item' id='jogo' placeholder='Nome do jogo' name='jogo'>
     </div>
     <div class='form-group'>
-        <input  required type='text' id='descricao' name='descricao' class='form-control item' placeholder='Empresa'>
+        <input  required type='text' id='empresa' name='empresa' class='form-control item' placeholder='Empresa'>
     </div>
     <div class='form-group'>
         <input type='file' name='figura'>

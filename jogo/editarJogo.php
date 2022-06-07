@@ -20,7 +20,7 @@ function ConsultarDados() {
     $id = $GLOBALS["id"];
     $bd = $GLOBALS["bd"];
 
-    $stmt = $bd->query("SELECT nome, descricao, imagem FROM jogo WHERE id = $id");
+    $stmt = $bd->query("SELECT nome, empresa, imagem FROM jogo WHERE id = $id");
     $stmt->execute();
     $GLOBALS["jogo"] = $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -31,10 +31,10 @@ function AtualizarRegistro() {
     $bd = $GLOBALS["bd"];
     $id = $_POST['id'];
     $nome = $_POST['nome'];
-    $descricao = $_POST['descricao'];
+    $empresa = $_POST['empresa'];
 
     // Verificar campos obrigatorios.
-    if ($nome === "" || $descricao === ""){
+    if ($nome === "" || $empresa === ""){
         echo "Campos obrigatórios não foram preenchidos. <br><br><a href='listarJogo.php'>Voltar</a>";
         exit();
     }
@@ -70,7 +70,7 @@ function AtualizarRegistro() {
         $sql = "UPDATE jogo
         SET
             nome = '$nome',
-            descricao = '$descricao',
+            empresa = '$empresa',
             imagem = '$arquivoEnviado'
         WHERE id = $id";
 
@@ -106,8 +106,8 @@ echo "
                 value='{$jogo['nome']}' class='form-control item' placeholder='Nome do jogo'>
         </div>
         <div class='form-group'>
-            <input type='text' id='jogo' name='descricao' 
-                value='{$jogo['descricao']}' class='form-control item' placeholder='Empresa'>
+            <input type='text' id='jogo' name='empresa' 
+                value='{$jogo['empresa']}' class='form-control item' placeholder='Empresa'>
         </div>
             $img<br>
             <input type='file' name='figura' class='mt-5'>

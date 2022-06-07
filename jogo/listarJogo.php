@@ -6,7 +6,7 @@ include('../components/head.inc.php');
 include('../components/default_header.inc.php');
 include('../components/container.inc.php');
 
-$stmt = $bd->query('SELECT id, nome, descricao, imagem FROM jogo WHERE apagado = 0');
+$stmt = $bd->query('SELECT id, nome, empresa, imagem FROM jogo WHERE apagado = 0');
 
 $stmt->execute();
 
@@ -28,7 +28,7 @@ echo "
                 <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>Categoria</th>
+                        <th>Empresa</th>
                         <th>Imagem</th>
                         <th>Editar/Apagar</th>
                 </tr>
@@ -48,7 +48,7 @@ while($reg = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <tr>
                 <th>{$reg['id']}</th>
                 <td>{$reg['nome']}</td>
-                <td>{$reg['descricao']}</td>
+                <td>{$reg['empresa']}</td>
                 <td>$img</td>
                 <td>
                         <button name='id' formaction='editarJogo.php' 
