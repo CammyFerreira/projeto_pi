@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 $stmt = $bd->prepare("  SELECT senha, email
-                        FROM usuarios 
+                        FROM usuario
                         WHERE email = :email");
 $stmt->bindParam(':email', $email);
 $stmt->execute();

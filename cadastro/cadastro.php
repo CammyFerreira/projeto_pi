@@ -15,7 +15,7 @@ if($senha != $confirmacaoSenha){
   
 $senha = password_hash( $senha, PASSWORD_DEFAULT);
 
-$stmt = $bd->prepare('  INSERT INTO usuarios 
+$stmt = $bd->prepare('  INSERT INTO usuario
                             (email, nome, senha) 
                         VALUES 
                             (:email, :nome, :senha)');
