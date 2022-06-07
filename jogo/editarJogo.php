@@ -40,7 +40,6 @@ function AtualizarRegistro() {
     }
     
     $arquivoEnviado = '';
-   echo $arquivoEnviado;
     
     if($_FILES['figura']['error'] == 0 &&
         $_FILES['figura']['size'] > 0){
@@ -51,7 +50,6 @@ function AtualizarRegistro() {
         $tipo = $campos[0];
         $ext = $campos[1];
 
-        echo $tipo;
 
         if($tipo == 'image'){
     
